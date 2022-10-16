@@ -16,8 +16,8 @@ resource "aws_vpc" "vpc" {
 
 # VPC Flow Logs
 resource "aws_flow_log" "flow_log" {
-  log_destination = var.flow_log_destination
+  log_destination      = var.flow_log_destination
   log_destination_type = "s3"
-  traffic_type = "ALL"
-  vpc_id = aws_vpc.vpc.id
+  traffic_type         = "ALL"
+  vpc_id               = aws_vpc.vpc.id
 }

@@ -24,14 +24,14 @@ resource "aws_main_route_table_association" "main" {
 
 # association public subnet
 resource "aws_route_table_association" "public" {
-  count             = length(var.subnet_public_cidr)
-  subnet_id         = aws_subnet.public[count.index].id
+  count          = length(var.subnet_public_cidr)
+  subnet_id      = aws_subnet.public[count.index].id
   route_table_id = aws_route_table.main.id
 }
 
 
 resource "aws_route_table" "private" {
-  count             = length(var.subnet_private_cidr)
+  count  = length(var.subnet_private_cidr)
   vpc_id = aws_vpc.vpc.id
 
   route {
@@ -46,7 +46,7 @@ resource "aws_route_table" "private" {
 
 # association private subnet
 resource "aws_route_table_association" "private" {
-  count             = length(var.subnet_private_cidr)
-  subnet_id         = aws_subnet.private[count.index].id
+  count          = length(var.subnet_private_cidr)
+  subnet_id      = aws_subnet.private[count.index].id
   route_table_id = aws_route_table.private[count.index].id
 }
