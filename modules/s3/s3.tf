@@ -6,7 +6,7 @@ resource "aws_s3_bucket" "vpc_flow_logs" {
   bucket = "${var.system}-${var.env}-vpc-flow-logs"
 
   tags = {
-    Name = "${var.system}-${var.env}-vpc-flow-logs"
+    Name = "${var.system}-${var.env}"
   }
 }
 

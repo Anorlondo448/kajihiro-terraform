@@ -7,6 +7,6 @@ resource "aws_eip" "ngw" {
   vpc   = true
 
   tags = {
-    Name = "${var.system}-${var.env}-eip"
+    Name = "${var.system}-${var.env}"
   }
 }

@@ -12,7 +12,7 @@ resource "aws_route_table" "main" {
   }
 
   tags = {
-    Name = "${var.system}-${var.env}-main"
+    Name = "${var.system}-${var.env}"
   }
 }
 
@@ -40,7 +40,7 @@ resource "aws_route_table" "private" {
   }
 
   tags = {
-    Name = "${var.system}-${var.env}-private"
+    Name = "${var.system}-${var.env}"
   }
 }
 
