@@ -2,7 +2,7 @@
     {
       "environment": [],
       "name": "${container_name}",
-      "image": "${aws_id}.dkr.ecr.ap-northeast-1.amazonaws.com/${repository_name}:latest",
+      "image": "${aws_id}.dkr.ecr.us-east-1.amazonaws.com/${repository_name}:latest",
       "cpu": 128,
       "portMappings": [
         {

@@ -30,6 +30,16 @@ data "terraform_remote_state" "network" {
   }
 }
 
+data "terraform_remote_state" "ecr" {
+  backend = "s3"
+
+  config = {
+    region = "us-east-1"
+    bucket = "kajihiro-terraform"
+    key    = "dev/ecr/terraform.tfstate"
+  }
+}
+
 #----------
 # Resource - ECS
 #----------
@@ -51,4 +61,8 @@ module "ecs" {
 
   # Security Group
   security_group_id_allow_http_from_any = data.terraform_remote_state.network.outputs.security_group_id_allow_http_from_any
+
+  # Repository
+  repository_frontend = data.terraform_remote_state.ecr.outputs.repository_frontend_name
+
 }
