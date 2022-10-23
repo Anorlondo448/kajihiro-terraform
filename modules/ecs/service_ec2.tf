@@ -14,6 +14,10 @@ resource "aws_ecs_service" "frontend_ec2" {
     weight            = 100
   }
 
+  deployment_controller {
+    type = "CODE_DEPLOY"
+  }
+
   load_balancer {
     target_group_arn = aws_lb_target_group.public-blue.arn
     container_name   = "${var.system}-${var.env}-frontend"
