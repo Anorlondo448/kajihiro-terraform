@@ -4,7 +4,7 @@
 #
 resource "aws_lb" "public" {
   name               = "${var.system}-${var.env}-public"
-  internal           = true
+  internal           = false
   load_balancer_type = "application"
     subnets         = var.subnet_public_id
     security_groups = [var.security_group_id_allow_http_from_any]
