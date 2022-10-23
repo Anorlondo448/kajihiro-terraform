@@ -1,6 +1,6 @@
 ###
 #
-# IAM
+# IAM for EC2 instance
 #
 resource "aws_iam_instance_profile" "ecs_instance" {
   name  = "${var.system}-${var.env}-ecs-instance"
