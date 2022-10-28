@@ -66,5 +66,5 @@ module "ecs" {
   repository_frontend = data.terraform_remote_state.ecr.outputs.repository_frontend_name
 
   # ASG Target Capacity
-  asg_target_capacity = 10
+  asg_target_capacity = 100
 }
