@@ -6,6 +6,10 @@ output "ecs_service_ec2_name" {
   value = module.ecs.service_ec2_name
 }
 
+output "ecs_service_fargate_name" {
+  value = module.ecs.service_fargate_name
+}
+
 output "alb_listner_arn" {
   value = module.ecs.listner_arn
 }

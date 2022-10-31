@@ -6,6 +6,10 @@ output "service_ec2_name" {
   value = aws_ecs_service.frontend_ec2.name
 }
 
+output "service_fargate_name" {
+  value = aws_ecs_service.frontend_fargate.name
+}
+
 output "listner_arn" {
   value = aws_lb_listener.public.arn
 }

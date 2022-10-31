@@ -57,6 +57,7 @@ module "deploy" {
   # ECS
   ecs_cluster_name = data.terraform_remote_state.ecs.outputs.ecs_cluster_name
   ecs_service_ec2_name = data.terraform_remote_state.ecs.outputs.ecs_service_ec2_name
+  ecs_service_fargate_name = data.terraform_remote_state.ecs.outputs.ecs_service_fargate_name
   alb_listner_arn = data.terraform_remote_state.ecs.outputs.alb_listner_arn
   alb_target_group_blue_name = data.terraform_remote_state.ecs.outputs.alb_target_group_blue_name
   alb_target_group_green_name = data.terraform_remote_state.ecs.outputs.alb_target_group_green_name

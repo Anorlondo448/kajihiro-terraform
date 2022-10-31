@@ -15,7 +15,7 @@ resource "aws_codebuild_project" "frontend" {
  
   environment {
     compute_type = "BUILD_GENERAL1_SMALL"
-    image        = "aws/codebuild/standard:4.0"
+    image        = "aws/codebuild/amazonlinux2-x86_64-standard:4.0"
     type         = "LINUX_CONTAINER"
     privileged_mode = true
    }
@@ -23,7 +23,8 @@ resource "aws_codebuild_project" "frontend" {
   source {
     type     = "CODEPIPELINE"
     location  = aws_codecommit_repository.frontend.clone_url_http
-    buildspec = data.template_file.buildspec_template_file.rendered
+    # buildspec = data.template_file.buildspec_template_file.rendered
+    buildspec = "buildspec.yml"
   }
 }
 

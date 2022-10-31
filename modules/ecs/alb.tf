@@ -6,8 +6,8 @@ resource "aws_lb" "public" {
   name               = "${var.system}-${var.env}-public"
   internal           = false
   load_balancer_type = "application"
-    subnets         = var.subnet_public_id
-    security_groups = [var.security_group_id_allow_http_from_any]
+  subnets         = var.subnet_public_id
+  security_groups = [var.security_group_id_allow_http_from_any]
 
   enable_deletion_protection = false
 
@@ -25,6 +25,12 @@ resource "aws_lb_listener" "public" {
     type             = "forward"
     target_group_arn = aws_lb_target_group.public-blue.arn
   }
+
+  lifecycle {
+    ignore_changes = [
+      default_action,
+    ]
+  }
 }
 
 resource "aws_lb_listener_rule" "public" {
@@ -41,6 +47,11 @@ resource "aws_lb_listener_rule" "public" {
     }
   }
 
+  lifecycle {
+    ignore_changes = [
+      action[0].target_group_arn,
+    ]
+  }
 }
 resource "aws_lb_target_group" "public-blue" {
   name     = "${var.system}-${var.env}-blue"
